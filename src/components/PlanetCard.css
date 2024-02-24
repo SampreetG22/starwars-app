@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  font-family: "Poppins";
+}
+.loader {
+  margin-top: 25vh;
+  text-align: center;
+}
+.loading {
+  width: 50px;
+}
+.dialogTitle {
+  font-size: 30px;
+  margin: 0px;
+}
+.planetDetailsCard {
+  width: 93%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+  justify-content: space-between;
+}
+.planetName {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.planetInfo,
+.residentsInfo {
+  flex: 1;
+  padding: 10px;
+}
+
+.planetInfo {
+  border-radius: 10px;
+  padding: 20px;
+  margin-right: 10px;
+  box-shadow: 0px 0px 10px #0000001a;
+  color: white;
+}
+
+.planetInfo h3 {
+  color: #333;
+  margin-top: 0;
+}
+
+.planetInfo p {
+  margin: 8px 0;
+  color: #fff;
+}
+
+.planetInfo p:first-child {
+  margin-top: 0;
+}
+
+.residentsInfo {
+  margin-top: 30px;
+}
+
+.planetInfo h3,
+.residentsInfo h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.planetInfo p,
+.residentsInfo p {
+  margin: 5px 0;
+}
+.closeIcon {
+  align-self: flex-end;
+  cursor: pointer;
+  padding: 0px;
+  background-color: #d40505;
+  border-radius: 50%;
+  color: white;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+.closeIcon:hover {
+  box-shadow: 0px 0px 10px #ffffff;
+}
+.columnHeader {
+  background-color: #00000044 !important;
+}
+
+.tableColumns {
+  text-transform: capitalize !important;
+}
+.divisions {
+  display: flex;
+  justify-content: center;
+}
+.planetCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px;
+  box-shadow: 0px 0px 10px #00000067;
+  padding: 15px;
+  width: 170px;
+  border-radius: 10px;
+}
+.categoryImage {
+  width: 100px;
+  margin-block: 25px;
+}
+.category {
+  text-transform: capitalize;
+  text-align: center;
+}
+.accordionContainer {
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0px 0px 10px #00000067;
+  border-radius: 4px;
+}
+.noOneText {
+  font-weight: 550;
+  font-size: 22px;
+}
