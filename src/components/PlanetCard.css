@@ -7,19 +7,21 @@
   text-align: center;
 }
 .loading {
-  width: 50px;
+  width: 3vw;
 }
 .dialogTitle {
-  font-size: 30px;
+  font-size: 1.5vw;
   margin: 0px;
+  text-align: center;
+  font-family: 600 !important;
 }
 .planetDetailsCard {
-  width: 93%;
+  width: 90%;
   height: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 30px;
+  margin: 2.3vw;
   justify-content: space-between;
 }
 .planetName {
@@ -30,14 +32,14 @@
 .planetInfo,
 .residentsInfo {
   flex: 1;
-  padding: 10px;
+  padding: 1.2vw;
 }
 
 .planetInfo {
-  border-radius: 10px;
-  padding: 20px;
-  margin-right: 10px;
-  box-shadow: 0px 0px 10px #0000001a;
+  border-radius: 1.3vw;
+  padding: 2vw;
+  margin-right: 1vw;
+  box-shadow: 0px 0px 1vw #0000001a;
   color: white;
 }
 
@@ -47,7 +49,7 @@
 }
 
 .planetInfo p {
-  margin: 8px 0;
+  margin: 0.8vw 0;
   color: #fff;
 }
 
@@ -56,13 +58,13 @@
 }
 
 .residentsInfo {
-  margin-top: 30px;
+  margin-top: 2.3vw;
 }
 
 .planetInfo h3,
 .residentsInfo h3 {
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 1.1vw;
 }
 
 .planetInfo p,
@@ -77,8 +79,8 @@
   border-radius: 50%;
   color: white;
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 2vw;
+  top: 2vw;
 }
 .closeIcon:hover {
   box-shadow: 0px 0px 10px #ffffff;
@@ -98,28 +100,57 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 25px;
+  margin: 2.3vw;
   box-shadow: 0px 0px 10px #00000067;
-  padding: 15px;
-  width: 170px;
+  padding: 1.8vw;
+  width: 12vw;
   border-radius: 10px;
 }
+.nameInPlanet {
+  font-weight: bold;
+  text-align: center;
+  margin: 0px;
+  font-size: 1.5vw;
+}
 .categoryImage {
-  width: 100px;
-  margin-block: 25px;
+  width: 7.2vw;
+  margin-block: 2.3vw;
 }
 .category {
   text-transform: capitalize;
   text-align: center;
+  font-size: 1.2vw;
 }
 .accordionContainer {
   width: 100%;
-  max-height: 300px;
+  max-height: 15vw;
   overflow-y: auto;
   box-shadow: 0px 0px 10px #00000067;
   border-radius: 4px;
 }
 .noOneText {
   font-weight: 550;
-  font-size: 22px;
+  font-size: 1.8vw;
+}
+/* PlanetCard.css */
+.residentsInfo {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.accordionContainer {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .accordionContainer {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .tableHeaderCell,
+  .tableColumns {
+    white-space: nowrap;
+    font-size: 12px;
+  }
 }

@@ -58,7 +58,9 @@ export default function PlanetCard(props) {
   return (
     <Dialog
       open={open}
-      PaperProps={{ sx: { height: "90%" } }}
+      PaperProps={{
+        sx: { width: "80%", height: "80%" },
+      }}
       onClose={handleDialogClose}
       maxWidth="md"
       fullWidth
@@ -76,8 +78,7 @@ export default function PlanetCard(props) {
       ) : (
         <div className="planetDetailsCard">
           <p className="dialogTitle">
-            Planet '
-            <strong className="planetName">{selectedPlanet.name}</strong>'
+            Planet <p className="planetName">{selectedPlanet.name}</p>
           </p>
           <div className="divisions">
             <div className="planetCard">
@@ -86,7 +87,7 @@ export default function PlanetCard(props) {
                 alt="category"
                 className="categoryImage"
               />
-              <strong>Gravity</strong>
+              <p className="nameInPlanet">Gravity</p>
               <p className="category">{selectedPlanet.gravity}</p>
             </div>
             <div className="planetCard">
@@ -95,7 +96,7 @@ export default function PlanetCard(props) {
                 alt="category"
                 className="categoryImage"
               />
-              <strong>Rotation Period</strong>
+              <p className="nameInPlanet">Rotation Period</p>
               <p className="category">{selectedPlanet.rotation_period}</p>
             </div>
           </div>
@@ -106,7 +107,7 @@ export default function PlanetCard(props) {
                 alt="category"
                 className="categoryImage"
               />
-              <strong>Orbital Period: </strong>
+              <p className="nameInPlanet">Orbital Period</p>
               <p className="category">{selectedPlanet.orbital_period}</p>
             </div>
             <div className="planetCard">
@@ -115,7 +116,7 @@ export default function PlanetCard(props) {
                 alt="category"
                 className="categoryImage"
               />
-              <strong>Diameter</strong>
+              <p className="nameInPlanet">Diameter</p>
               <p className="category">{selectedPlanet.diameter}</p>
             </div>
           </div>
@@ -126,7 +127,7 @@ export default function PlanetCard(props) {
                 alt="category"
                 className="categoryImage"
               />
-              <strong>Terrain</strong>
+              <p className="nameInPlanet">Terrain</p>
               <p className="category">{selectedPlanet.terrain}</p>
             </div>
             <div className="planetCard">
@@ -135,7 +136,7 @@ export default function PlanetCard(props) {
                 alt="category"
                 className="categoryImage"
               />
-              <strong>Surface Water</strong>
+              <p className="nameInPlanet">Surface Water</p>
               <p className="category">{selectedPlanet.surface_water}</p>
             </div>
           </div>
@@ -145,7 +146,7 @@ export default function PlanetCard(props) {
               alt="category"
               className="categoryImage"
             />
-            <strong>Population</strong>
+            <p className="nameInPlanet">Population</p>
             <p className="category">{selectedPlanet.population}</p>
           </div>
           {residents.length > 0 ? (

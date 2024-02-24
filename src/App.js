@@ -2,9 +2,12 @@ import "./App.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { CircularProgress, Pagination } from "@mui/material";
-import PlanetCard from "./components/PlanetCard";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import VolumeOffIcon from "@mui/icons-material/VolumeOff";
+import Tooltip from "@mui/material/Tooltip";
+import Zoom from "@mui/material/Zoom";
+import useSound from "use-sound";
+import PlanetCard from "./components/PlanetCard";
 
 function App() {
   const [planetData, setPlanetData] = useState({ results: [] });
@@ -12,7 +15,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(1);
-  const [muted, setMuted] = useState(false);
+  const [muted, setMuted] = useState(true);
 
   useEffect(() => {
     fetchPlanets();
@@ -37,6 +40,15 @@ function App() {
       });
   };
 
+  const [play, { stop }] = useSound("/Cosmos.mp3", { volume: 0.8, loop: true });
+  useEffect(() => {
+    if (!muted) {
+      play();
+    } else {
+      stop();
+    }
+  }, [muted, play, stop]);
+
   const handleChange = (event, value) => {
     setPage(value);
   };
@@ -48,31 +60,51 @@ function App() {
   return (
     <div className="mainContainer">
       {muted ? (
-        <VolumeOffIcon
-          onClick={() => setMuted(!muted)}
-          className="audioIcon"
-          fontSize="small"
-          sx={{ color: "white" }}
-        />
+        <Tooltip
+          title="Turn on audio"
+          placement="left"
+          TransitionComponent={Zoom}
+        >
+          <VolumeOffIcon
+            id="volumeOff"
+            onClick={() => {
+              play();
+              setMuted(!muted);
+            }}
+            className="audioIcon"
+            fontSize="small"
+            sx={{ color: "white", fontSize: "2vw" }}
+          />
+        </Tooltip>
       ) : (
-        <VolumeUpIcon
-          onClick={() => setMuted(!muted)}
-          className="audioIcon"
-          fontSize="small"
-          sx={{ color: "white" }}
-        />
+        <Tooltip
+          title="Turn off audio"
+          placement="left"
+          TransitionComponent={Zoom}
+        >
+          <VolumeUpIcon
+            onClick={() => {
+              stop();
+              setMuted(!muted);
+            }}
+            className="audioIcon"
+            fontSize="small"
+            sx={{ color: "white", fontSize: "2vw" }}
+          />
+        </Tooltip>
       )}
       <video
-        src="/Background.mp4"
-        loop
         className="videoBg"
+        src="/BackgroundVideo.mp4"
+        type="video/mp4"
         autoPlay
-        muted={muted}
-      />
-      <audio autoPlay loop src="/Cosmos.mp3" muted={muted}></audio>
+        loop
+        muted
+      ></video>
       <h1 className="mainHeading">
+        Welcome to our exploration of the expansive
         <img src="/assets/StarWars.jpg" className="starWars" alt="starWars" />
-        Planets Directory
+        universe
       </h1>
       {loading ? (
         <>
@@ -92,8 +124,10 @@ function App() {
                     setSelectedPlanet(eachPlanet);
                   }}
                 >
-                  <span>Planet</span>
-                  <h3 className="planetName">{eachPlanet.name}</h3>
+                  <span className="planetSpan">
+                    Planet
+                    <h3 className="planetName">{eachPlanet.name}</h3>
+                  </span>
                 </div>
               );
             })}
@@ -103,15 +137,8 @@ function App() {
             page={page}
             onChange={handleChange}
             className="pagination"
-            color="primary"
+            color="warning"
             size="large"
-            sx={{
-              "& .MuiPaginationItem-page": {
-                color: "white",
-                fontSize: "20px",
-                marginInline: "10px",
-              },
-            }}
           />
         </>
       )}
